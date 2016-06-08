@@ -1,0 +1,12 @@
+version: '2'
+services:
+    nikrossshop-postgresql:
+        container_name: nikrossshop-postgresql
+        image: postgres:9.5.2
+        # volumes:
+        #     - ~/volumes/jhipster/nikrossShop/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=nikrossShop
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
