@@ -1,0 +1,64 @@
+<div>
+    <h2 translate="nikrossShopApp.photos.home.title">Photos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="photos.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="nikrossShopApp.photos.home.createLabel">
+                        Create new Photos
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="nikrossShopApp.photos.thumbnail">Thumbnail</span></th>
+                    <th><span translate="nikrossShopApp.photos.image">Image</span></th>
+                    <th><span translate="nikrossShopApp.photos.type">Type</span></th>
+                    <th><span translate="nikrossShopApp.photos.goods">Goods</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="photos in vm.photos track by photos.id">
+                    <td><a ui-sref="photos-detail({id:photos.id})">{{photos.id}}</a></td>
+                    <td>{{photos.thumbnail}}</td>
+                    <td>{{photos.image}}</td>
+                    <td>{{photos.type}}</td>
+                    <td>
+                        <a ui-sref="goods-detail({id:photos.goods.id})">{{photos.goods.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="photos-detail({id:photos.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="photos.edit({id:photos.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="photos.delete({id:photos.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

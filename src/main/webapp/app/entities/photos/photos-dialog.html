@@ -1,0 +1,50 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPhotosLabel" translate="nikrossShopApp.photos.home.createOrEditLabel">Create or edit a Photos</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.photos.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.photos.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="nikrossShopApp.photos.thumbnail" for="field_thumbnail">Thumbnail</label>
+            <input type="text" class="form-control" name="thumbnail" id="field_thumbnail"
+                    ng-model="vm.photos.thumbnail"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="nikrossShopApp.photos.image" for="field_image">Image</label>
+            <input type="text" class="form-control" name="image" id="field_image"
+                    ng-model="vm.photos.image"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="nikrossShopApp.photos.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                    ng-model="vm.photos.type"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="nikrossShopApp.photos.goods" for="field_goods">Goods</label>
+            <select class="form-control" id="field_goods" name="goods" ng-model="vm.photos.goods" ng-options="goods as goods.id for goods in vm.goods track by goods.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

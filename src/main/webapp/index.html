@@ -22,8 +22,13 @@
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
     <div ui-view="navbar" ng-cloak></div>
+    <div class="header container" ng-cloak>
+        <div class="logo-header-img img-responsive img-rounded col-md-4"></div>
+        <div class="col-md-8">
+            <h1>NIKROSS -> With ♥</h1>
+        </div>
+    </div>
     <div class="container">
         <div class="well" ui-view="content">
             <!-- Angular views -->
@@ -94,7 +99,25 @@
     <script src="app/layouts/error/error.state.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
+    <script src="app/entities/photos/photos-dialog.controller.js"></script>
+    <script src="app/entities/photos/photos-detail.controller.js"></script>
+    <script src="app/entities/photos/photos-delete-dialog.controller.js"></script>
+    <script src="app/entities/photos/photos.state.js"></script>
+    <script src="app/entities/photos/photos.service.js"></script>
+    <script src="app/entities/photos/photos.controller.js"></script>
+    <script src="app/entities/goods/goods-dialog.controller.js"></script>
+    <script src="app/entities/goods/goods-detail.controller.js"></script>
+    <script src="app/entities/goods/goods-delete-dialog.controller.js"></script>
+    <script src="app/entities/goods/goods.state.js"></script>
+    <script src="app/entities/goods/goods.service.js"></script>
+    <script src="app/entities/goods/goods.controller.js"></script>
     <script src="app/entities/entity.state.js"></script>
+    <script src="app/entities/categories/categories-dialog.controller.js"></script>
+    <script src="app/entities/categories/categories-detail.controller.js"></script>
+    <script src="app/entities/categories/categories-delete-dialog.controller.js"></script>
+    <script src="app/entities/categories/categories.state.js"></script>
+    <script src="app/entities/categories/categories.service.js"></script>
+    <script src="app/entities/categories/categories.controller.js"></script>
     <script src="app/components/util/truncate-words.filter.js"></script>
     <script src="app/components/util/truncate-characters.filter.js"></script>
     <script src="app/components/util/sort-by.directive.js"></script>

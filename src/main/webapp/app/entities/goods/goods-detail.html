@@ -1,0 +1,32 @@
+
+<div>
+    <h2><span translate="nikrossShopApp.goods.detail.title">Goods</span> {{vm.goods.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="nikrossShopApp.goods.article">Article</span></dt>
+        <dd>
+            <span>{{vm.goods.article}}</span>
+        </dd>
+        <dt><span translate="nikrossShopApp.goods.title">Title</span></dt>
+        <dd>
+            <span>{{vm.goods.title}}</span>
+        </dd>
+        <dt><span translate="nikrossShopApp.goods.description">Description</span></dt>
+        <dd>
+            <span>{{vm.goods.description}}</span>
+        </dd>
+        <dt><span translate="nikrossShopApp.goods.categories">Categories</span></dt>
+        <dd>
+            <span ng-repeat="categories in vm.goods.categories">
+                <a ui-sref="categories-detail({id: {{categories.id}}})">{{categories.name}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,23 @@
+{
+    "nikrossShopApp": {
+        "categories" : {
+            "home": {
+                "title": "Categories",
+                "createLabel": "Создать новый Categories",
+                "createOrEditLabel": "Создать или отредактировать Categories",
+                "search": "Найти Categories"
+            },
+            "created": "Новый Categories создан с идентификатором {{ param }}",
+            "updated": "Categories обновлен с идентификатором {{ param }}",
+            "deleted": "Categories удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Categories {{ id }}?"
+            },
+            "detail": {
+                "title": "Categories"
+            },
+            "name": "Name",
+            "goods": "Goods"
+        }
+    }
+}

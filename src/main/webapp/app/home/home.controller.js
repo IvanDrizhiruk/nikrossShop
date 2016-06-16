@@ -5,9 +5,9 @@
         .module('nikrossShopApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Goods'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function HomeController ($scope, Principal, LoginService, $state, Goods) {
         var vm = this;
 
         vm.account = null;
@@ -18,7 +18,15 @@
             getAccount();
         });
 
-        getAccount();
+        init();
+
+        function init () {
+            getAccount();
+
+            Goods.query(function(result) {
+                vm.goods = result;
+            });
+        }
 
         function getAccount() {
             Principal.identity().then(function(account) {
@@ -29,5 +37,9 @@
         function register () {
             $state.go('register');
         }
+
+
+
+
     }
 })();

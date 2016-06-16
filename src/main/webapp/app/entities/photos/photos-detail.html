@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="nikrossShopApp.photos.detail.title">Photos</span> {{vm.photos.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="nikrossShopApp.photos.thumbnail">Thumbnail</span></dt>
+        <dd>
+            <span>{{vm.photos.thumbnail}}</span>
+        </dd>
+        <dt><span translate="nikrossShopApp.photos.image">Image</span></dt>
+        <dd>
+            <span>{{vm.photos.image}}</span>
+        </dd>
+        <dt><span translate="nikrossShopApp.photos.type">Type</span></dt>
+        <dd>
+            <span>{{vm.photos.type}}</span>
+        </dd>
+        <dt><span translate="nikrossShopApp.photos.goods">Goods</span></dt>
+        <dd>
+            <a ui-sref="goods-detail({id:vm.photos.goods.id})">{{vm.photos.goods.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

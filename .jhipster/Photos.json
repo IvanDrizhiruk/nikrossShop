@@ -1,0 +1,32 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "goods",
+      "otherEntityName": "goods",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "thumbnail",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "image",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160616170747",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

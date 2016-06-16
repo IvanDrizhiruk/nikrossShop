@@ -1,0 +1,48 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myGoodsLabel" translate="nikrossShopApp.goods.home.createOrEditLabel">Create or edit a Goods</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.goods.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.goods.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="nikrossShopApp.goods.article" for="field_article">Article</label>
+            <input type="text" class="form-control" name="article" id="field_article"
+                    ng-model="vm.goods.article"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="nikrossShopApp.goods.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.goods.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="nikrossShopApp.goods.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.goods.description"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="nikrossShopApp.goods.categories" for="field_categories">Categories</label>
+            <select class="form-control" id="field_categories" multiple name="categories" ng-model="vm.goods.categories" ng-options="categories as categories.name for categories in vm.categories track by categories.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

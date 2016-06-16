@@ -374,3 +374,12 @@ Social Buttons
 }
 
 /* jhipster-needle-css-add-main JHipster will add new css style */
+
+
+.logo-header-img {
+    display: inline-block;
+    height: 200px;
+    width: 180px;
+    background: url("../images/logo.png") no-repeat center top;
+    background-size: contain;
+}

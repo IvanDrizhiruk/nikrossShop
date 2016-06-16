@@ -1,0 +1,33 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "categories",
+      "otherEntityName": "categories",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "name",
+      "ownerSide": true
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "article",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160616170746",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

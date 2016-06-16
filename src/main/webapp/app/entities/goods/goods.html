@@ -1,0 +1,66 @@
+<div>
+    <h2 translate="nikrossShopApp.goods.home.title">Goods</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="goods.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="nikrossShopApp.goods.home.createLabel">
+                        Create new Goods
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="nikrossShopApp.goods.article">Article</span></th>
+                    <th><span translate="nikrossShopApp.goods.title">Title</span></th>
+                    <th><span translate="nikrossShopApp.goods.description">Description</span></th>
+                    <th><span translate="nikrossShopApp.goods.categories">Categories</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="goods in vm.goods track by goods.id">
+                    <td><a ui-sref="goods-detail({id:goods.id})">{{goods.id}}</a></td>
+                    <td>{{goods.article}}</td>
+                    <td>{{goods.title}}</td>
+                    <td>{{goods.description}}</td>
+                    <td>
+                        <span ng-repeat="categories in goods.categories">
+                            <a class="form-control-static" ui-sref="categories-detail({id: {{categories.id}}})">{{categories.name}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="goods-detail({id:goods.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="goods.edit({id:goods.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="goods.delete({id:goods.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
