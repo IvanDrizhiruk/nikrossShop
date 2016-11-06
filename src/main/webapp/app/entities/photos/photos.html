@@ -29,8 +29,18 @@
             <tbody>
                 <tr ng-repeat="photos in vm.photos track by photos.id">
                     <td><a ui-sref="photos-detail({id:photos.id})">{{photos.id}}</a></td>
-                    <td>{{photos.thumbnail}}</td>
-                    <td>{{photos.image}}</td>
+                    <td>
+                        <a ng-if="photos.thumbnail" ng-click="vm.openFile(photos.thumbnailContentType, photos.thumbnail)">
+                            <img data-ng-src="{{'data:' + photos.thumbnailContentType + ';base64,' + photos.thumbnail}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="photos.thumbnail">{{photos.thumbnailContentType}}, {{vm.byteSize(photos.thumbnail)}}</span>
+                    </td>
+                    <td>
+                        <a ng-if="photos.image" ng-click="vm.openFile(photos.imageContentType, photos.image)">
+                            <img data-ng-src="{{'data:' + photos.imageContentType + ';base64,' + photos.image}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="photos.image">{{photos.imageContentType}}, {{vm.byteSize(photos.image)}}</span>
+                    </td>
                     <td>{{photos.type}}</td>
                     <td>
                         <a ui-sref="goods-detail({id:photos.goods.id})">{{photos.goods.id}}</a>

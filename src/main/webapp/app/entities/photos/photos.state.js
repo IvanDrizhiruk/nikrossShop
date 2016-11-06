@@ -72,7 +72,9 @@
                         entity: function () {
                             return {
                                 thumbnail: null,
+                                thumbnailContentType: null,
                                 image: null,
+                                imageContentType: null,
                                 type: null,
                                 id: null
                             };

@@ -6,11 +6,21 @@
     <dl class="dl-horizontal jh-entity-details">
         <dt><span translate="nikrossShopApp.photos.thumbnail">Thumbnail</span></dt>
         <dd>
-            <span>{{vm.photos.thumbnail}}</span>
+            <div ng-if="vm.photos.thumbnail">
+                <a ng-click="vm.openFile(vm.photos.thumbnailContentType, vm.photos.thumbnail)">
+                    <img data-ng-src="{{'data:' + vm.photos.thumbnailContentType + ';base64,' + vm.photos.thumbnail}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.photos.thumbnailContentType}}, {{vm.byteSize(vm.photos.thumbnail)}}
+            </div>
         </dd>
         <dt><span translate="nikrossShopApp.photos.image">Image</span></dt>
         <dd>
-            <span>{{vm.photos.image}}</span>
+            <div ng-if="vm.photos.image">
+                <a ng-click="vm.openFile(vm.photos.imageContentType, vm.photos.image)">
+                    <img data-ng-src="{{'data:' + vm.photos.imageContentType + ';base64,' + vm.photos.image}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.photos.imageContentType}}, {{vm.byteSize(vm.photos.image)}}
+            </div>
         </dd>
         <dt><span translate="nikrossShopApp.photos.type">Type</span></dt>
         <dd>

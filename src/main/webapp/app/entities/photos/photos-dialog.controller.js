@@ -5,13 +5,15 @@
         .module('nikrossShopApp')
         .controller('PhotosDialogController', PhotosDialogController);
 
-    PhotosDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Photos', 'Goods'];
+    PhotosDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Photos', 'Goods'];
 
-    function PhotosDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Photos, Goods) {
+    function PhotosDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Photos, Goods) {
         var vm = this;
 
         vm.photos = entity;
         vm.clear = clear;
+        vm.byteSize = DataUtils.byteSize;
+        vm.openFile = DataUtils.openFile;
         vm.save = save;
         vm.goods = Goods.query();
 
@@ -42,6 +44,34 @@
             vm.isSaving = false;
         }
 
+
+        vm.setThumbnail = function ($file, photos) {
+            if ($file && $file.$error === 'pattern') {
+                return;
+            }
+            if ($file) {
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+                        photos.thumbnail = base64Data;
+                        photos.thumbnailContentType = $file.type;
+                    });
+                });
+            }
+        };
+
+        vm.setImage = function ($file, photos) {
+            if ($file && $file.$error === 'pattern') {
+                return;
+            }
+            if ($file) {
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+                        photos.image = base64Data;
+                        photos.imageContentType = $file.type;
+                    });
+                });
+            }
+        };
 
     }
 })();

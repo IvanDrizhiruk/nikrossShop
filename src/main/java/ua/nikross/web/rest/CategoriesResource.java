@@ -26,10 +26,10 @@ import java.util.Optional;
 public class CategoriesResource {
 
     private final Logger log = LoggerFactory.getLogger(CategoriesResource.class);
-
+        
     @Inject
     private CategoriesRepository categoriesRepository;
-
+    
     /**
      * POST  /categories : Create a new categories.
      *
@@ -90,21 +90,6 @@ public class CategoriesResource {
         List<Categories> categories = categoriesRepository.findAll();
         return categories;
     }
-
-//    /**
-//     * GET  /categories : get all the categories.
-//     *
-//     * @return the ResponseEntity with status 200 (OK) and the list of categories in body
-//     */
-//    @RequestMapping(value = "/categories",
-//        method = RequestMethod.GET,
-//        produces = MediaType.APPLICATION_JSON_VALUE)
-//    @Timed
-//    public List<Categories> getAllCategoriesWithEagerRelationships() {
-//        log.debug("REST request to get all Categories");
-//        List<Categories> categories = categoriesRepository.findAllWithEagerRelationships();
-//        return categories;
-//    }
 
     /**
      * GET  /categories/:id : get the "id" categories.

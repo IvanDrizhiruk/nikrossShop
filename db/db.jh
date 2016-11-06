@@ -9,8 +9,8 @@ entity Goods {
 }
 
 entity Photos {
-	thumbnail String,
-	image String,
+	thumbnail ImageBlob ,
+	image ImageBlob,
 	type String
 }
 

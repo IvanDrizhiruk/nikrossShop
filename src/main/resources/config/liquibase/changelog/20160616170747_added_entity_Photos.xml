@@ -21,11 +21,17 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="thumbnail" type="varchar(255)">
+            <column name="thumbnail" type="blob">
+                <constraints nullable="true" />
+            </column>
+            <column name="thumbnail_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             
-            <column name="image" type="varchar(255)">
+            <column name="image" type="blob">
+                <constraints nullable="true" />
+            </column>
+            <column name="image_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             

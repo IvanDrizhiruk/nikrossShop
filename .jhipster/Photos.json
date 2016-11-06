@@ -12,12 +12,14 @@
     {
       "fieldId": 1,
       "fieldName": "thumbnail",
-      "fieldType": "String"
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
     },
     {
       "fieldId": 2,
       "fieldName": "image",
-      "fieldType": "String"
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
     },
     {
       "fieldId": 3,

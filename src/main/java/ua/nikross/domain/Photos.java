@@ -21,11 +21,19 @@ public class Photos implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Lob
     @Column(name = "thumbnail")
-    private String thumbnail;
+    private byte[] thumbnail;
 
+    @Column(name = "thumbnail_content_type")
+    private String thumbnailContentType;
+
+    @Lob
     @Column(name = "image")
-    private String image;
+    private byte[] image;
+
+    @Column(name = "image_content_type")
+    private String imageContentType;
 
     @Column(name = "type")
     private String type;
@@ -41,20 +49,36 @@ public class Photos implements Serializable {
         this.id = id;
     }
 
-    public String getThumbnail() {
+    public byte[] getThumbnail() {
         return thumbnail;
     }
 
-    public void setThumbnail(String thumbnail) {
+    public void setThumbnail(byte[] thumbnail) {
         this.thumbnail = thumbnail;
     }
 
-    public String getImage() {
+    public String getThumbnailContentType() {
+        return thumbnailContentType;
+    }
+
+    public void setThumbnailContentType(String thumbnailContentType) {
+        this.thumbnailContentType = thumbnailContentType;
+    }
+
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public String getImageContentType() {
+        return imageContentType;
+    }
+
+    public void setImageContentType(String imageContentType) {
+        this.imageContentType = imageContentType;
     }
 
     public String getType() {
@@ -98,7 +122,9 @@ public class Photos implements Serializable {
         return "Photos{" +
             "id=" + id +
             ", thumbnail='" + thumbnail + "'" +
+            ", thumbnailContentType='" + thumbnailContentType + "'" +
             ", image='" + image + "'" +
+            ", imageContentType='" + imageContentType + "'" +
             ", type='" + type + "'" +
             '}';
     }
