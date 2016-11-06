@@ -23,19 +23,13 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div ui-view="navbar" ng-cloak></div>
-    <div class="header container" ng-cloak>
-        <div class="logo-header-img img-responsive img-rounded col-md-4"></div>
-        <div class="col-md-8">
-            <h1>NIKROSS -> With ♥</h1>
-        </div>
-    </div>
     <div class="container">
         <div class="well" ui-view="content">
             <!-- Angular views -->
         </div>
 
         <div class="footer" ng-cloak>
-            <p translate="footer">This is your footer</p>
+            <span>v{{VERSION}}</span>
         </div>
     </div>
 
@@ -54,6 +48,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/messageformat/messageformat.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>

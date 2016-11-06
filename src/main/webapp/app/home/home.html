@@ -1,13 +1,29 @@
 <div ng-cloak>
-    <div class="row">
 
-        <div ng-repeat="good in vm.goods" class="col-md-4">
-            {{good.article}} - {{ good.title}}
+    <div ng-repeat="category in vm.categorizedGoods" class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading" ng-bind="category.name"></div>
+            <div class="panel-body">
+                <div ng-repeat="good in category.goods" class="col col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                            <span ng-bind="good.article"></span>
+                            #
+                            <span ng-bind=" good.title"></span>
+                        </div>
+                        <div class="panel-body text-center">
+                            <img class="logo-img text-center" src="content/images/logo.png" style="height: 100px"/>
+                        </div>
+                        <div class="panel-body">
+                            <p ng-bind="good.description"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
 
-    <div class="row">
+    <!--<div class="row">
 
         <div class="col-md-4">
             <span class="hipster img-responsive img-rounded"></span>
@@ -46,5 +62,5 @@
              <span translate="home.like">If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank" translate="home.github">Github</a>!
             </p>
         </div>
-    </div>
+    </div>-->
 </div>

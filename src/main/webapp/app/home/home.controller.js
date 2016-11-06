@@ -5,9 +5,9 @@
         .module('nikrossShopApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Goods'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Categories', 'Goods'];
 
-    function HomeController ($scope, Principal, LoginService, $state, Goods) {
+    function HomeController ($scope, Principal, LoginService, $state, Categories, Goods) {
         var vm = this;
 
         vm.account = null;
@@ -23,8 +23,25 @@
         function init () {
             getAccount();
 
-            Goods.query(function(result) {
-                vm.goods = result;
+            Goods.query().$promise.then(function(goods) {
+
+                var categorizedGoods = {};
+                goods.forEach(function (item) {
+                    item.categories.forEach(function (category) {
+                        console.log(category)
+                        var storedCategory = categorizedGoods[category.id];
+
+                        if (!storedCategory) {
+                            storedCategory = category;
+                            categorizedGoods[category.id] = storedCategory;
+                            storedCategory.goods=[];
+                        }
+
+                        storedCategory.goods.push(item);
+                    })
+                });
+
+                vm.categorizedGoods = categorizedGoods;
             });
         }
 
@@ -37,9 +54,5 @@
         function register () {
             $state.go('register');
         }
-
-
-
-
     }
 })();
