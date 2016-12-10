@@ -20,7 +20,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Base64Utils;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -42,16 +41,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class PhotosResourceIntTest {
 
-
-    private static final byte[] DEFAULT_THUMBNAIL = TestUtil.createByteArray(1, "0");
-    private static final byte[] UPDATED_THUMBNAIL = TestUtil.createByteArray(2, "1");
-    private static final String DEFAULT_THUMBNAIL_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_THUMBNAIL_CONTENT_TYPE = "image/png";
-
-    private static final byte[] DEFAULT_IMAGE = TestUtil.createByteArray(1, "0");
-    private static final byte[] UPDATED_IMAGE = TestUtil.createByteArray(2, "1");
-    private static final String DEFAULT_IMAGE_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_IMAGE_CONTENT_TYPE = "image/png";
+    private static final String DEFAULT_THUMBNAIL = "AAAAA";
+    private static final String UPDATED_THUMBNAIL = "BBBBB";
+    private static final String DEFAULT_IMAGE = "AAAAA";
+    private static final String UPDATED_IMAGE = "BBBBB";
     private static final String DEFAULT_TYPE = "AAAAA";
     private static final String UPDATED_TYPE = "BBBBB";
 
@@ -82,9 +75,7 @@ public class PhotosResourceIntTest {
     public void initTest() {
         photos = new Photos();
         photos.setThumbnail(DEFAULT_THUMBNAIL);
-        photos.setThumbnailContentType(DEFAULT_THUMBNAIL_CONTENT_TYPE);
         photos.setImage(DEFAULT_IMAGE);
-        photos.setImageContentType(DEFAULT_IMAGE_CONTENT_TYPE);
         photos.setType(DEFAULT_TYPE);
     }
 
@@ -105,9 +96,7 @@ public class PhotosResourceIntTest {
         assertThat(photos).hasSize(databaseSizeBeforeCreate + 1);
         Photos testPhotos = photos.get(photos.size() - 1);
         assertThat(testPhotos.getThumbnail()).isEqualTo(DEFAULT_THUMBNAIL);
-        assertThat(testPhotos.getThumbnailContentType()).isEqualTo(DEFAULT_THUMBNAIL_CONTENT_TYPE);
         assertThat(testPhotos.getImage()).isEqualTo(DEFAULT_IMAGE);
-        assertThat(testPhotos.getImageContentType()).isEqualTo(DEFAULT_IMAGE_CONTENT_TYPE);
         assertThat(testPhotos.getType()).isEqualTo(DEFAULT_TYPE);
     }
 
@@ -122,10 +111,8 @@ public class PhotosResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(photos.getId().intValue())))
-                .andExpect(jsonPath("$.[*].thumbnailContentType").value(hasItem(DEFAULT_THUMBNAIL_CONTENT_TYPE)))
-                .andExpect(jsonPath("$.[*].thumbnail").value(hasItem(Base64Utils.encodeToString(DEFAULT_THUMBNAIL))))
-                .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
-                .andExpect(jsonPath("$.[*].image").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMAGE))))
+                .andExpect(jsonPath("$.[*].thumbnail").value(hasItem(DEFAULT_THUMBNAIL.toString())))
+                .andExpect(jsonPath("$.[*].image").value(hasItem(DEFAULT_IMAGE.toString())))
                 .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())));
     }
 
@@ -140,10 +127,8 @@ public class PhotosResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(photos.getId().intValue()))
-            .andExpect(jsonPath("$.thumbnailContentType").value(DEFAULT_THUMBNAIL_CONTENT_TYPE))
-            .andExpect(jsonPath("$.thumbnail").value(Base64Utils.encodeToString(DEFAULT_THUMBNAIL)))
-            .andExpect(jsonPath("$.imageContentType").value(DEFAULT_IMAGE_CONTENT_TYPE))
-            .andExpect(jsonPath("$.image").value(Base64Utils.encodeToString(DEFAULT_IMAGE)))
+            .andExpect(jsonPath("$.thumbnail").value(DEFAULT_THUMBNAIL.toString()))
+            .andExpect(jsonPath("$.image").value(DEFAULT_IMAGE.toString()))
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()));
     }
 
@@ -166,9 +151,7 @@ public class PhotosResourceIntTest {
         Photos updatedPhotos = new Photos();
         updatedPhotos.setId(photos.getId());
         updatedPhotos.setThumbnail(UPDATED_THUMBNAIL);
-        updatedPhotos.setThumbnailContentType(UPDATED_THUMBNAIL_CONTENT_TYPE);
         updatedPhotos.setImage(UPDATED_IMAGE);
-        updatedPhotos.setImageContentType(UPDATED_IMAGE_CONTENT_TYPE);
         updatedPhotos.setType(UPDATED_TYPE);
 
         restPhotosMockMvc.perform(put("/api/photos")
@@ -181,9 +164,7 @@ public class PhotosResourceIntTest {
         assertThat(photos).hasSize(databaseSizeBeforeUpdate);
         Photos testPhotos = photos.get(photos.size() - 1);
         assertThat(testPhotos.getThumbnail()).isEqualTo(UPDATED_THUMBNAIL);
-        assertThat(testPhotos.getThumbnailContentType()).isEqualTo(UPDATED_THUMBNAIL_CONTENT_TYPE);
         assertThat(testPhotos.getImage()).isEqualTo(UPDATED_IMAGE);
-        assertThat(testPhotos.getImageContentType()).isEqualTo(UPDATED_IMAGE_CONTENT_TYPE);
         assertThat(testPhotos.getType()).isEqualTo(UPDATED_TYPE);
     }
 

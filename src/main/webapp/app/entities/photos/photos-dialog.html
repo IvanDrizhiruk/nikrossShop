@@ -13,49 +13,17 @@
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.photos.id" readonly />
         </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setThumbnail($file, vm.photos)" ngf-pattern="'image/*'">
+        <div class="form-group">
             <label class="control-label" translate="nikrossShopApp.photos.thumbnail" for="field_thumbnail">Thumbnail</label>
-            <div>
-                <img data-ng-src="{{'data:' + vm.photos.thumbnailContentType + ';base64,' + vm.photos.thumbnail}}" style="max-height: 100px;" ng-if="vm.photos.thumbnail"/>
-                <div ng-if="vm.photos.thumbnail" class="help-block clearfix">
-                    <span class="pull-left">{{vm.photos.thumbnailContentType}}, {{vm.byteSize(vm.photos.thumbnail)}}</span>
-                    <button ng-click="vm.photos.thumbnail=null;vm.photos.thumbnailContentType=null;"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="file" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setThumbnail($file, vm.photos)" accept="image/*" translate="entity.action.addimage">
-                    Add image
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="thumbnail" id="field_thumbnail"
+            <input type="text" class="form-control" name="thumbnail" id="field_thumbnail"
                     ng-model="vm.photos.thumbnail"
                      />
-            <input type="hidden" class="form-control" name="thumbnailContentType" id="field_thumbnailContentType"
-                    ng-model="vm.photos.thumbnailContentType" />
         </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setImage($file, vm.photos)" ngf-pattern="'image/*'">
+        <div class="form-group">
             <label class="control-label" translate="nikrossShopApp.photos.image" for="field_image">Image</label>
-            <div>
-                <img data-ng-src="{{'data:' + vm.photos.imageContentType + ';base64,' + vm.photos.image}}" style="max-height: 100px;" ng-if="vm.photos.image"/>
-                <div ng-if="vm.photos.image" class="help-block clearfix">
-                    <span class="pull-left">{{vm.photos.imageContentType}}, {{vm.byteSize(vm.photos.image)}}</span>
-                    <button ng-click="vm.photos.image=null;vm.photos.imageContentType=null;"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="file" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setImage($file, vm.photos)" accept="image/*" translate="entity.action.addimage">
-                    Add image
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="image" id="field_image"
+            <input type="text" class="form-control" name="image" id="field_image"
                     ng-model="vm.photos.image"
                      />
-            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
-                    ng-model="vm.photos.imageContentType" />
         </div>
         <div class="form-group">
             <label class="control-label" translate="nikrossShopApp.photos.type" for="field_type">Type</label>

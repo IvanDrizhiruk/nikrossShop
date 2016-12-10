@@ -5,24 +5,22 @@
             <div class="panel-heading" ng-bind="category.name"></div>
             <div class="panel-body">
                 <div ng-repeat="good in category.goods" class="col col-md-4">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default"
+                        ui-sref="goods-detail({id:good.id})">
                         <div class="panel-heading text-center">
                             <span ng-bind="good.article"></span>
                             #
                             <span ng-bind=" good.title"></span>
                         </div>
                         <div class="panel-body text-center">
-                            <img class="logo-img text-center" src="content/images/logo.png" style="height: 100px"/>
-
-
-                            test {{ vm.photosForGoods | json }} test
-                            <a ng-if="vm.photosForGoods[good.id].thumbnail">
-                                <img data-ng-src="{{'data:' + vm.photosForGoods[good.id].thumbnailContentType + ';base64,' + vm.photosForGoods[good.id]..thumbnail}}"
-                                     style="max-height: 30px;"/>
-                            </a>
-
-                            <img data-ng-src="{{'data:' + photo.thumbnail + ';base64,'}}"
-                                 style="max-height: 30px;"/>
+                            <img class="logo-img text-center"
+                                 ng-hide="vm.photosForGoods[good.id][0].thumbnail"
+                                 src="content/images/logo.png"
+                                 style="height: 100px"/>
+                            <img class="logo-img text-center"
+                                 ng-show="vm.photosForGoods[good.id][0].thumbnail"
+                                 ng-src="content/images/photos/{{ vm.photosForGoods[good.id][0].thumbnail }}"
+                                 style="height: 100px"/>
                         </div>
                         <div class="panel-body">
                             <p ng-bind="good.description"></p>

@@ -5,14 +5,12 @@
         .module('nikrossShopApp')
         .controller('PhotosController', PhotosController);
 
-    PhotosController.$inject = ['$scope', '$state', 'DataUtils', 'Photos'];
+    PhotosController.$inject = ['$scope', '$state', 'Photos'];
 
-    function PhotosController ($scope, $state, DataUtils, Photos) {
+    function PhotosController ($scope, $state, Photos) {
         var vm = this;
         
         vm.photos = [];
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
 
         loadAll();
 

@@ -4,6 +4,15 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
+
+        <dt><span translate="nikrossShopApp.goods.photo">Photo</span></dt>
+        <dd>
+            <div ng-repeat="photos in vm.photosForGoods[vm.goods.id]">
+                <img class="logo-img text-center"
+                     ng-show="photos.thumbnail"
+                     ng-src="content/images/photos/{{ photos.thumbnail }}"/>
+            </div>
+        </dd>
         <dt><span translate="nikrossShopApp.goods.article">Article</span></dt>
         <dd>
             <span>{{vm.goods.article}}</span>

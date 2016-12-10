@@ -14,6 +14,7 @@
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
+        vm.navigateTo = navigateTo;
         $scope.$on('authenticationSuccess', function() {
             getAccount();
         });
@@ -69,6 +70,12 @@
         }
         function register () {
             $state.go('register');
+        }
+
+        function navigateTo (good) {
+            if (good && good.id) {
+                $state.go('/goods/' + good.id);
+            }
         }
     }
 })();
