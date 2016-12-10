@@ -67,5 +67,8 @@
   "scripts": {
     "test": "gulp test",
     "postinstall": "webdriver-manager update"
+  },
+  "dependencies": {
+    "uuid": "^3.0.1"
   }
 }
