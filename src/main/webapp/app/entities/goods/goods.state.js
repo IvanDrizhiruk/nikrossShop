@@ -35,7 +35,7 @@
             parent: 'entity',
             url: '/goods/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'nikrossShopApp.goods.detail.title'
             },
             views: {
