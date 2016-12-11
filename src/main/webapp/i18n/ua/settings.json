@@ -1,0 +1,32 @@
+{
+    "settings": {
+        "title": "Налаштування користувача для [<b>{{username}}</b>]",
+        "form": {
+            "firstname": "Ім'я",
+            "firstname.placeholder": "Ваше ім'я",
+            "lastname": "Фамилия",
+            "lastname.placeholder": "Ваше прізвище",
+            "language": "Мова",
+            "button": "Зберегти"
+        },
+        "messages": {
+            "error": {
+                "fail": "<strong>Відбулася помилка!</strong> Не вдається зберегти налаштування.",
+                "emailexists": "<strong>E-mail уже используется!</strong> Будь ласка, спробуйте інший."
+            },
+            "success": "<strong>Налаштування збережено!</strong>",
+            "validate": {
+                "firstname": {
+                    "required": "Ім'я повинно бути вказано.",
+                    "minlength": "Довжина імені повинна бути хоч би 1 символ",
+                    "maxlength": "Ім'я не може бути довшим ніж 50 символів"
+                },
+                "lastname": {
+                    "required": "Прізвище повинно бути вказано.",
+                    "minlength": "Довжина прізвища повинна бути хоч би 1 символ",
+                    "maxlength": "Прізвище не може бути довшим ніж 50 символів"
+                }
+            }
+        }
+    }
+}

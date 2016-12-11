@@ -29,6 +29,11 @@
                   tableName="goods" />
 
         <loadData encoding="UTF-8"
+                  file="config/liquibase/photos.csv"
+                  separator=";"
+                  tableName="photos" />
+
+        <loadData encoding="UTF-8"
                   file="config/liquibase/goods_categories.csv"
                   separator=";"
                   tableName="goods_categories" />

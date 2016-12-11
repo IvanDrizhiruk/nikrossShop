@@ -1,0 +1,9 @@
+{
+    "activate": {
+        "title": "Активація",
+        "messages": {
+            "success": "<strong>Ваш акаунт було активовано.</strong> Будь ласка, <a class=\"alert-link\" href=\"\" ng-click=\"vm.login()\">увійдіть</a>.",
+            "error": "<strong>Не вдається активувати ваш акаунт.</strong> Будь ласка, скористайтесь формою регістрації."
+        }
+    }
+}

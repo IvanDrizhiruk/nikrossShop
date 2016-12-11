@@ -1,0 +1,19 @@
+{
+    "login": {
+        "title": "Авторизація",
+        "form": {
+            "password": "Пароль",
+            "password.placeholder": "Ваш пароль",
+            "rememberme": "Увійти автоматично",
+            "button": "Увійти"
+        },
+        "messages": {
+            "error": {
+                "authentication": "<strong>Не вдалося увійти!</strong> Будь ласка, перевірте ваші облікові дані і спробуйте ще раз."
+            }
+        },
+        "password" : {
+            "forgot": "Ви забули ваш пароль?"
+        }
+    }
+}

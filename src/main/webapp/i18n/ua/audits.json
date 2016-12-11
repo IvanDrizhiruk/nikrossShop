@@ -1,0 +1,27 @@
+{
+    "audits": {
+        "title": "Аудит",
+        "filter": {
+            "title": "Фільтр по даті",
+            "from": "от",
+            "to": "до",
+            "button": {
+                "weeks": "Тижнів",
+                "today": "сьогодні",
+                "clear": "очистити",
+                "close": "закрити"
+            }
+        },
+        "table": {
+            "header": {
+                "principal": "Користувач",
+                "date": "Дата",
+                "status": "Стан",
+                "data": "Дод. інф."
+            },
+            "data": {
+                "remoteAddress": "Удалённый адрес:"
+            }
+        }
+    }
+}

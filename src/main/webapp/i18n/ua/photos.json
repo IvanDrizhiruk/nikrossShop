@@ -1,0 +1,25 @@
+{
+    "nikrossShopApp": {
+        "photos" : {
+            "home": {
+                "title": "Photos",
+                "createLabel": "Создать новый Photos",
+                "createOrEditLabel": "Создать или отредактировать Photos",
+                "search": "Найти Photos"
+            },
+            "created": "Новый Photos создан с идентификатором {{ param }}",
+            "updated": "Photos обновлен с идентификатором {{ param }}",
+            "deleted": "Photos удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Photos {{ id }}?"
+            },
+            "detail": {
+                "title": "Photos"
+            },
+            "thumbnail": "Thumbnail",
+            "image": "Image",
+            "type": "Type",
+            "goods": "Goods"
+        }
+    }
+}
