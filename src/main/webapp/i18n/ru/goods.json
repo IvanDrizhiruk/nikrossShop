@@ -17,6 +17,7 @@
                 "title": "Goods"
             },
             "article": "Article",
+            "photo": "Photo(s)",
             "title": "Title",
             "description": "Description",
             "categories": "Categories"

@@ -8,9 +8,11 @@
         <dt><span translate="nikrossShopApp.goods.photo">Photo</span></dt>
         <dd>
             <div ng-repeat="photos in vm.photosForGoods[vm.goods.id]">
+                <span ng-bind="photos.thumbnail"></span>
                 <img class="logo-img text-center"
                      ng-show="photos.thumbnail"
-                     ng-src="content/images/photos/{{ photos.thumbnail }}"/>
+                     ng-src="content/images/photos/{{ photos.thumbnail }}"
+                     style="width: 200px"/>
             </div>
         </dd>
         <dt><span translate="nikrossShopApp.goods.article">Article</span></dt>
