@@ -20,5 +20,5 @@ relationship ManyToMany {
 }
 
 relationship ManyToOne {
-	Photos{goods} to Goods
+	Photos{goods} to Goods{article}
 }
