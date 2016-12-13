@@ -13,7 +13,15 @@
             urlTemplate: 'i18n/{lang}/{part}.json'
         });
 
-        $translateProvider.preferredLanguage('ru');
+        //ISD fix for ua language
+        //start
+        MessageFormat.plurals.ua = function (n, ord) {
+            if (ord) return 'other';
+            return (n == 1) ? 'one' : 'other';
+        };
+        //end
+
+        $translateProvider.preferredLanguage('ua');
         $translateProvider.useStorage('translationStorageProvider');
         $translateProvider.useSanitizeValueStrategy('escaped');
         $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
