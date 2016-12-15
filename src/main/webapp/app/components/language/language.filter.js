@@ -10,7 +10,7 @@
 
         function findLanguageFromKeyFilter(lang) {
             return {
-                'ua': 'Украънська',
+                'uk': 'Украънська',
                 'ca': 'Català',
                 'cs': 'Český',
                 'da': 'Dansk',
