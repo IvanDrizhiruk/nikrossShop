@@ -18,14 +18,17 @@ spring:
         livereload:
             enabled: false
     datasource:
-        url: jdbc:postgresql://localhost:5432/nikrossShop
+        url: jdbc:h2:file:./target/h2db/db/nikrossshop;DB_CLOSE_DELAY=-1
         name:
         username: nikrossShop
         password:
+    h2:
+        console:
+            enabled: false
     jpa:
-        database-platform: ua.nikross.domain.util.FixedPostgreSQL82Dialect
-        database: POSTGRESQL
-        show_sql: false
+        database-platform: ua.nikross.domain.util.FixedH2Dialect
+        database: H2
+        show_sql: true
         properties:
             hibernate.cache.use_second_level_cache: true
             hibernate.cache.use_query_cache: false
@@ -36,8 +39,10 @@ spring:
         port: 25
         username:
         password:
+    messages:
+        cache-seconds: 1
     thymeleaf:
-        cache: true
+        cache: false
 
 liquibase:
     contexts: prod
@@ -60,7 +65,7 @@ jhipster:
     cache: # Hibernate 2nd level cache, used by CacheConfiguration
         timeToLiveSeconds: 3600
         ehcache:
-            maxBytesLocalHeap: 256M
+            maxBytesLocalHeap: 128M
     security:
         rememberMe:
             # security key (this key should be unique for your application, and kept secret)

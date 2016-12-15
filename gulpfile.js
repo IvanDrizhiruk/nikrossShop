@@ -40,7 +40,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('copy', function () {
-    return es.merge( 
+    return es.merge(
         gulp.src(config.app + 'i18n/**')
         .pipe(plumber({errorHandler: handleErrors}))
         .pipe(changed(config.dist + 'i18n/'))
@@ -78,7 +78,8 @@ gulp.task('images', function () {
         .pipe(plumber({errorHandler: handleErrors}))
         .pipe(changed(config.dist + 'content/images'))
         .pipe(imagemin({optimizationLevel: 5, progressive: true, interlaced: true}))
-        .pipe(rev())
+        //ISD do not rename images
+        //.pipe(rev())
         .pipe(gulp.dest(config.dist + 'content/images'))
         .pipe(rev.manifest(config.revManifest, {
             base: config.dist,
